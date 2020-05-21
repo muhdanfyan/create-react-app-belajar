@@ -1,50 +1,117 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-class LambdaDemo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { loading: false, msg: null }
-  }
-
-  handleClick = api => e => {
-    e.preventDefault()
-
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
-  }
-
-  render() {
-    const { loading, msg } = this.state
-
-    return (
-      <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
-        <br />
-        <span>{msg}</span>
-      </p>
-    )
-  }
+function App() {
+  return (
+    <div className="Parentbox">
+      <FotoProduk />
+      <ProdukInfo isDiscount="coming" name="Youdora Dora" category="LEBARAN" />
+      <ReviewItems />
+    </div>
+      
+  );
 }
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <LambdaDemo />
-        </header>
+function ReviewItems() {
+  const users = [
+    {
+      "id" : 1,
+      "name" : "Masayoshi",
+      "review" : "Harganya murah tapi kualitas bukan kaleng-kaleng nih. Keren",
+    },
+    {
+      "id" : 2,
+      "name" : "Imran",
+      "review" : "Mantaplah pokoknya",
+    },
+    {
+      "id" : 3,
+      "name" : "Said",
+      "review" : "Jelek Ki",
+    },
+    {
+      "id" : 4,
+      "name" : "Hari",
+      "review" : "Hancurkan saja",
+    }
+  ];
+
+  const listReview = users.map((itemReview) => 
+    <div className="Item">
+      <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=face-facial-hair-fine-looking-guy-614810.jpg&fm=jpg" />
+      <div className="User">
+        <h3>{itemReview.name}</h3>
+        <p>{itemReview.review}</p>
       </div>
-    )
+    </div>
+  );
+
+  return(
+    <div className="Review-box">
+    <h2>Reviews</h2>
+    {listReview}
+    </div>
+  );
+
+}
+
+function FotoProduk() {
+  return (
+    <div className="Foto">
+      <img src="bwasneaker.jpg" />
+    </div>
+  );
+}
+
+function CheckDiscount(props){
+  const {isDiscount} = props;
+  if(isDiscount =="yes"){
+    return(
+      <p>Diskon 50% Off</p>
+    );
+  }
+  else if(isDiscount =="coming"){
+    return(
+      <p>Akan Ada Diskon</p>
+    );
+  }
+  else {
+    return(
+      <p>Belum Ada Diskon</p>
+    );
   }
 }
 
-export default App
+
+function ProdukInfo(props) {
+  const {category, name, isDiscount} = props;
+  const benefits = ["Tidak kusut kena air", "Bahan lebih halus", "Tidak gerah"];
+  const listItems= benefits.map((benefitItem) =>
+    <li>{benefitItem}</li>
+  );
+  return(
+    <div>
+      <div className="Deskripsi">
+        <p className="Cate">{category}</p>
+        <h1 className="Title">{name}</h1>
+        <p className="Price"> IDR 73.309.399</p>
+        <CheckDiscount isDiscount={isDiscount} />
+        <p className="Info">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptatum asperiores, tempora repellat voluptatem sunt, officia quasi vitae velit voluptate sit nulla. Autem tenetur sint pariatur accusantium rerum quibusdam. Minus.
+        </p>
+        <ul>
+          {listItems}
+        </ul>
+        <a onClick={(e) => TambahCart(name, e)} href="#">Add to Cart</a>
+      </div>
+    </div>
+  );
+}
+
+
+function TambahCart(e) {
+  return console.log("Membeli " + e);
+}
+
+export default App;

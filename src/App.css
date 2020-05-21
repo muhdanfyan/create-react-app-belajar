@@ -1,32 +1,101 @@
-.App {
-  text-align: center;
+.Parentbox {
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 100px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.Foto {
+  float: left;
+  width: 50%;
+  height: 700px;
+  background :#e3e9ee;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Foto img {
+  width: 100%;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.Deskripsi {
+  width: 40%;
+  overflow: hidden;
+  float: left;
+  margin-left: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Deskripsi .Info {
+  line-height: 1.8;
+  color: rgb(18, 11, 49);
+}
+
+.Deskripsi .Price {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.Deskripsi .Title {
+  margin: 0;
+}
+
+.Deskripsi .Cate {
+  color: #acaeb2;
+}
+
+.Deskripsi a {
+  margin-top: 20px;
+  color: #fff;
+  font-weight: 500;
+  background: rgb(255, 159, 159);
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  border-radius: 4px;
+  transition: all 0.8s;
+}
+
+.Deskripsi a:hover {
+  color: #ffffff;
+  background: rgb(221, 135, 135);
+  transition: all 0.8s;
+}
+
+.Deskripsi ul li {
+  padding-bottom: 10px;
+}
+
+.Review-box {
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+.Review-box h2 {
+  margin-top: 50px;
+}
+
+.Review-box img {
+  width: 80px;
+  height: 80px;
+  background: #b1b1b1;
+  border-radius: 11px;
+  float: left;
+  margin-right: 16px;
+}
+
+.Review-box .User p, h3 {
+  margin: 0;
+}
+
+.Review-box .User h3 {
+  padding-top: 10px;
+  margin-bottom: 8px;
+}
+
+.Review-box .Item {
+  width: 80%;
+  overflow: hidden;
+  margin-bottom: 24px;
 }
