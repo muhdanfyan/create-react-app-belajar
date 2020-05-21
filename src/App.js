@@ -43,9 +43,9 @@ function ReviewItems() {
 
   const listReview = users.map((itemReview) => 
     <div className="Item">
-      <img src={itemReview.gbr} />
+      <img src={require(itemReview.gbr)} />
       <div className="User">
-        <h3>{require(itemReview.name)}</h3>
+        <h3>{itemReview.name}</h3>
         <p>{itemReview.review}</p>
       </div>
     </div>
