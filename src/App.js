@@ -19,27 +19,31 @@ function ReviewItems() {
       "id" : 1,
       "name" : "Masayoshi",
       "review" : "Harganya murah tapi kualitas bukan kaleng-kaleng nih. Keren",
+      "gbr" : "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=face-facial-hair-fine-looking-guy-614810.jpg&fm=jpg"
     },
     {
       "id" : 2,
       "name" : "Imran",
       "review" : "Mantaplah pokoknya",
+      "gbr" : "https://images.pexels.com/photos/4275711/pexels-photo-4275711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
       "id" : 3,
       "name" : "Said",
       "review" : "Jelek Ki",
+      "gbr" : "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
       "id" : 4,
       "name" : "Hari",
       "review" : "Hancurkan saja",
+      "gbr" : "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     }
   ];
 
   const listReview = users.map((itemReview) => 
     <div className="Item">
-      <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=face-facial-hair-fine-looking-guy-614810.jpg&fm=jpg" />
+      <img src="{itemReview.gbr}" />
       <div className="User">
         <h3>{itemReview.name}</h3>
         <p>{itemReview.review}</p>
