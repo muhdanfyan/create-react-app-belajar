@@ -87,7 +87,6 @@ function CheckDiscount(props){
   }
 }
 
-
 function ProdukInfo(props) {
   const {category, name, isDiscount} = props;
   const benefits = ["Tidak kusut kena air", "Bahan lebih halus", "Tidak gerah"];
